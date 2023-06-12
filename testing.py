@@ -5,16 +5,16 @@ uri = "mongodb+srv://mahis:Ki8PconYWZqYp4iD@pythonproject.lnqrejm.mongodb.net/?r
 # Create a new client and connect to the server
 client = MongoClient(uri)
 
-db = client.test
-print(db)
+db = client.get_database('myInfo')
 
-data = {
-    "name": "Deepali",
-    "email": "deepakadam@yahoo.co.uk",
-    "subject": ["MSCIT", "Coraldraw", "AutoCad", "photoshop"]
+d = {
+    'name': 'mahish Kadam',
+    'email': 'mahish@gmail.com',
+    'role': 'datascientist',
+    'position': 'manager'
 }
 
-database = client["myInfo"]
-coll = database["deep"]
-coll.insert_one(data)
+collection = db.get_collection('deep')
+
+collection.insert_one(d)
 
